@@ -10,7 +10,9 @@
     "prepare": "husky install",
     "start": "node build/server.js",
     "start:dev": "tsx watch src/server.ts",
-    "build": "tsup"
+    "build": "tsup",
+    "lint": "eslint . --ext .ts,js",
+    "lint:fix": "eslint . --ext .ts,js --fix"
   },
   "dependencies": {
     "fastify": "4.17.0"
