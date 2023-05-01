@@ -1,10 +1,5 @@
-import fastify from 'fastify'
-
+import { app } from './app'
 import { logger } from './logger'
-
-const app = fastify({
-  logger,
-})
 
 app.listen({ port: 3333, host: '0.0.0.0' })
 
