@@ -4,6 +4,9 @@ devDependencies:
   '@rocketseat/eslint-config':
     specifier: 1.2.0
     version: 1.2.0(eslint@8.39.0)(typescript@5.0.4)
+  '@tsconfig/recommended':
+    specifier: 1.0.2
+    version: 1.0.2
   eslint:
     specifier: 8.39.0
     version: 8.39.0
@@ -13,6 +16,9 @@ devDependencies:
   husky:
     specifier: 8.0.0
     version: 8.0.0
+  typescript:
+    specifier: 5.0.4
+    version: 5.0.4
 
 packages:
 
@@ -128,6 +134,10 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: true
+
+  /@tsconfig/recommended@1.0.2:
+    resolution: {integrity: sha512-dbHBtbWBOjq0/otpopAE02NT2Cm05Qe2JsEKeCf/wjSYbI2hz8nCqnpnOJWHATgjDz4fd3dchs3Wy1gQGjfN6w==}
     dev: true
 
   /@types/json-schema@7.0.11:
