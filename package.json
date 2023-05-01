@@ -6,8 +6,10 @@
   "license": "MIT",
   "main": "build/server.js",
   "scripts": {
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
+    "test": "vitest run --dir src/use-cases",
+    "test:cov": "vitest run --coverage --dir src/use-cases",
+    "test:e2e": "vitest run --dir src/http",
+    "test:e2e:cov": "vitest run --coverage --dir src/http",
     "prepare": "husky install",
     "start": "node build/server.js",
     "start:dev": "tsx watch src/server.ts",
