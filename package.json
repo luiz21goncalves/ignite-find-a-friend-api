@@ -1,13 +1,12 @@
 {
   "name": "ignite-find-a-friend-api",
   "version": "0.0.0",
-  "type": "module",
   "description": "Leve a felicidade para o seu lar",
   "main": "dist/server.js",
   "author": "Luiz Gonçalves<luizhbgoncalves@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node --watch src/server.js",
+    "dev": "tsx --watch --env-file .env.development src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
     "lint": "eslint .",
