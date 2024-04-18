@@ -11,7 +11,8 @@
     "start": "node dist/server.js",
     "build": "tsup",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fastify/cors": "9.0.1",
