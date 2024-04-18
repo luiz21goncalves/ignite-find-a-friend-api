@@ -1,0 +1,11 @@
+{
+  "extends": ["@rocketseat/eslint-config/node"],
+  "plugins": ["simple-import-sort", "sort-keys"],
+  "rules": {
+    "no-console": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "sort-keys": "off",
+    "sort-keys/sort-keys-fix": "error"
+  }
+}
