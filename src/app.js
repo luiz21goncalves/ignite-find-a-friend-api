@@ -1,5 +1,5 @@
 import cors from '@fastify/cors'
-import fastify from "fastify"
+import fastify from 'fastify'
 
 const app = fastify()
 
