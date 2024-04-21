@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@fastify/cors": "9.0.1",
+    "@prisma/client": "5.12.1",
     "dotenv": "16.4.5",
     "fastify": "4.26.2",
     "pino": "8.20.0",
@@ -33,6 +34,7 @@
     "eslint": "8.57.0",
     "eslint-plugin-simple-import-sort": "12.1.0",
     "eslint-plugin-sort-keys": "2.3.5",
+    "prisma": "5.12.1",
     "supertest": "6.3.4",
     "tsup": "8.0.2",
     "tsx": "4.7.2",
