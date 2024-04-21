@@ -8,6 +8,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-22.04
+
+    services:
+      database:
+        image: bitnami/postgresql:16.2.0
+        ports:
+          - 5432:5432
+        env:
+          POSTGRESQL_USERNAME: docker
+          POSTGRESQL_PASSWORD: docker
+          POSTGRESQL_DATABASE: ignite-find-a-friend
+
     steps:
       - name: checkout
         uses: actions/checkout@v4
