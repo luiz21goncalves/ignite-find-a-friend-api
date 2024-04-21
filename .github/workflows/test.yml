@@ -8,6 +8,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-22.04
+    env:
+      DATABASE_URL: "postgresql://docker:docker@localhost:5432/ignite-find-a-friend?schema=public"
 
     services:
       database:
