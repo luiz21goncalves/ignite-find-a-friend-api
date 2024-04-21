@@ -31,7 +31,6 @@ describe(`POST ${ROUTE}`, () => {
         created_at: expect.any(String),
         email,
         id: expect.any(String),
-        password_hash: password,
         updated_at: expect.any(String),
       },
     })
@@ -54,9 +53,8 @@ describe(`POST ${ROUTE}`, () => {
 
     expect(response.status).toEqual(500)
     expect(response.body).toStrictEqual({
-      code: 'P2002',
       error: 'Internal Server Error',
-      message: expect.any(String),
+      message: 'Identity already exits',
       statusCode: 500,
     })
   })

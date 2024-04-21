@@ -1,7 +1,7 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
 
-import { prisma } from '@/lib/prisma'
+import { makeCreateIdentityUseCase } from '@/use-cases/factories/make-create-identity-use-case'
 
 export async function createIdentity(
   request: FastifyRequest,
@@ -14,12 +14,9 @@ export async function createIdentity(
 
   const { email, password } = createIdentityBodySchema.parse(request.body)
 
-  const identity = await prisma.identity.create({
-    data: {
-      email,
-      password_hash: password,
-    },
-  })
+  const createIdentityUseCase = makeCreateIdentityUseCase()
+
+  const { identity } = await createIdentityUseCase.execute({ email, password })
 
   return replay.status(201).send({ identity })
 }
