@@ -8,5 +8,6 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['lcov', 'text'],
     },
+    environmentMatchGlobs: [['test/integration/**', 'prisma']],
   },
 })
