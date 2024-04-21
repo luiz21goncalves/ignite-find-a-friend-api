@@ -75,6 +75,9 @@ importers:
       vitest:
         specifier: 1.5.0
         version: 1.5.0(@types/node@20.12.7)
+      vitest-environment-prisma:
+        specifier: link:./prisma/vitest-environment-prisma
+        version: link:prisma/vitest-environment-prisma
 
 packages:
 
