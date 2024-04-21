@@ -7,6 +7,7 @@
     "simple-import-sort/exports": "error",
     "sort-keys": "off",
     "sort-keys/sort-keys-fix": "error",
-    "no-useless-constructor": "off"
+    "no-useless-constructor": "off",
+    "camelcase": "off"
   }
 }
