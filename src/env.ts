@@ -1,6 +1,15 @@
 import z from 'zod'
 
 const envSchema = z.object({
+  LOGGER_LEVEL: z.enum([
+    'fatal',
+    'error',
+    'warn',
+    'info',
+    'debug',
+    'trace',
+    'silent',
+  ]),
   PORT: z.coerce.number(),
 })
 
