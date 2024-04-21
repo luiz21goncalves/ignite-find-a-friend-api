@@ -7,7 +7,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsx --watch --env-file .env.development src/server.ts",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "test:watch:coverage": "vitest watch --coverage",
     "start": "node dist/server.js",
     "build": "tsup",
     "lint": "eslint .",
