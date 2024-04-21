@@ -1,4 +1,10 @@
 services:
+  database:
+    image: bitnami/postgresql:16.2.0
+    env_file:
+      - .env.development
+    ports:
+      - 5432:5432
   api:
     build:
       context: .
