@@ -1,4 +1,9 @@
+import dotenv from 'dotenv'
 import z from 'zod'
+
+dotenv.config({
+  path: ['.env', `.env.${process.env.NODE_ENV}`],
+})
 
 const envSchema = z.object({
   LOGGER_LEVEL: z.enum([
