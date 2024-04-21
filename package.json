@@ -27,6 +27,7 @@
     "zod": "3.22.5"
   },
   "devDependencies": {
+    "@faker-js/faker": "8.4.1",
     "@rocketseat/eslint-config": "2.2.2",
     "@tsconfig/node20": "20.1.4",
     "@types/node": "20.12.7",
