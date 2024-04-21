@@ -35,6 +35,6 @@ jobs:
         if: steps.pnpm-cache.outputs.cache-hit != 'true'
       - run: pnpm install --prefer-offline --frozen-lockfile
 
-      - name: run test
-        run: pnpm run test
+      - name: run test coverage
+        run: pnpm run test:coverage
 
