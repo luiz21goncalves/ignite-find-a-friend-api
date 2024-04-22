@@ -14,7 +14,7 @@ export class AppError<MessageType = unknown> {
     this.props = props
   }
 
-  get error(): Required<ErroProps<MessageType>> {
+  get error(): ErroProps<MessageType> {
     return {
       error: this.props.error,
       message: this.props.message,

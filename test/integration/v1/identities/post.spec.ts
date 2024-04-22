@@ -54,8 +54,9 @@ describe(`POST ${ROUTE}`, () => {
     expect(response.status).toEqual(500)
     expect(response.body).toStrictEqual({
       error: 'Internal Server Error',
-      message: 'Identity already exits',
+      message: 'An internal error occurred',
       statusCode: 500,
+      type: 'internal_error',
     })
   })
 })
