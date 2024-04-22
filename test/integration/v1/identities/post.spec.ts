@@ -59,4 +59,48 @@ describe(`POST ${ROUTE}`, () => {
       type: 'internal_error',
     })
   })
+
+  it('should not be able to create an identity without email', async () => {
+    const password = faker.internet.password()
+
+    const response = await supertest(app.server).post(ROUTE).send({ password })
+
+    expect(response.status).toEqual(400)
+    expect(response.body).toStrictEqual({
+      error: 'Validation failed',
+      message: { _errors: [], email: { _errors: ['Required'] } },
+      statusCode: 400,
+      type: 'validation_error',
+    })
+  })
+
+  it('should not be able to create an identity without password', async () => {
+    const email = faker.internet.email()
+
+    const response = await supertest(app.server).post(ROUTE).send({ email })
+
+    expect(response.status).toEqual(400)
+    expect(response.body).toStrictEqual({
+      error: 'Validation failed',
+      message: { _errors: [], password: { _errors: ['Required'] } },
+      statusCode: 400,
+      type: 'validation_error',
+    })
+  })
+
+  it('should not be able to create an identity without body', async () => {
+    const response = await supertest(app.server).post(ROUTE).send({})
+
+    expect(response.status).toEqual(400)
+    expect(response.body).toStrictEqual({
+      error: 'Validation failed',
+      message: {
+        _errors: [],
+        email: { _errors: ['Required'] },
+        password: { _errors: ['Required'] },
+      },
+      statusCode: 400,
+      type: 'validation_error',
+    })
+  })
 })
