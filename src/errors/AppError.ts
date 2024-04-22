@@ -1,4 +1,4 @@
-type ErrorType = 'internal_error' | 'validation_error'
+type ErrorType = 'internal_error' | 'validation_error' | 'constraint_error'
 
 type ErroProps<MessageType> = {
   message: MessageType

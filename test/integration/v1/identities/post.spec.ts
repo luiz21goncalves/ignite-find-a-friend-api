@@ -51,12 +51,12 @@ describe(`POST ${ROUTE}`, () => {
       .post(ROUTE)
       .send({ email, password })
 
-    expect(response.status).toEqual(500)
+    expect(response.status).toEqual(422)
     expect(response.body).toStrictEqual({
-      error: 'Internal Server Error',
-      message: 'An internal error occurred',
-      statusCode: 500,
-      type: 'internal_error',
+      error: 'Identity already exists',
+      message: 'Email already in use',
+      statusCode: 422,
+      type: 'constraint_error',
     })
   })
 

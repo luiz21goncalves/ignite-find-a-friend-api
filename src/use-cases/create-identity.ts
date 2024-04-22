@@ -3,6 +3,8 @@ import {
   Identity,
 } from '@/repositories/identities-repository'
 
+import { IdentityAlreadyExistsError } from './errors/IdentityAlreadyExistsError'
+
 type CreateIdentityUseCaseRequest = {
   email: string
   password: string
@@ -22,7 +24,7 @@ export class CreateIdentityUseCase {
       await this.identitiesRepository.findByEmail(email)
 
     if (identityWithSameEmail) {
-      throw new Error('Identity already exits')
+      throw new IdentityAlreadyExistsError()
     }
 
     const identity = await this.identitiesRepository.create({
