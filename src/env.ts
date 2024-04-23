@@ -15,6 +15,7 @@ const envSchema = z.object({
     'trace',
     'silent',
   ]),
+  PASS_SECRET: z.string(),
   PORT: z.coerce.number(),
 })
 
