@@ -1,19 +1,30 @@
 import { randomUUID } from 'node:crypto'
 
 import cors from '@fastify/cors'
+import jwt from '@fastify/jwt'
 import fastify from 'fastify'
 import { ZodError } from 'zod'
 
+import { ENV } from './env'
 import { AppError } from './errors/AppError'
 import { InternalServerError } from './errors/InternalServerError'
 import { ValidationError } from './errors/ValidationError'
 import { identitiesRoutes } from './http/controllers/identities/routes'
+import { sessionsRoutes } from './http/controllers/sessions/routes'
 import { logger } from './logger'
 
 const app = fastify({ genReqId: () => randomUUID(), logger })
 
 app.register(cors)
+app.register(jwt, {
+  secret: ENV.JWT_SECRET,
+  sign: {
+    expiresIn: ENV.JWT_EXPIRES_IN,
+  },
+})
+
 app.register(identitiesRoutes)
+app.register(sessionsRoutes)
 
 app.setErrorHandler((fastifyError, request, replay) => {
   if (fastifyError instanceof ZodError) {
