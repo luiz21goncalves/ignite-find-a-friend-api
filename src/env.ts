@@ -6,6 +6,8 @@ dotenv.config({
 })
 
 const envSchema = z.object({
+  JWT_EXPIRES_IN: z.string(),
+  JWT_SECRET: z.string(),
   LOGGER_LEVEL: z.enum([
     'fatal',
     'error',
