@@ -15,6 +15,26 @@ import { logger } from './logger'
 
 const app = fastify({ genReqId: () => randomUUID(), logger })
 
+app.addHook('preHandler', (request, _replay, next) => {
+  request.log.trace({
+    body: request.body,
+    header: request.headers,
+    params: request.params,
+    query: request.query,
+  })
+
+  next()
+})
+
+app.addHook('onSend', (_request, replay, payload, done) => {
+  replay.log.trace({
+    body: JSON.parse((payload as string) ?? ''),
+    headers: replay.getHeaders(),
+  })
+
+  done()
+})
+
 app.register(cors)
 app.register(jwt, {
   secret: ENV.JWT_SECRET,
