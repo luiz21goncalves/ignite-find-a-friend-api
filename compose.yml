@@ -1,8 +1,10 @@
 services:
   database:
     image: bitnami/postgresql:16.2.0
-    env_file:
-      - .env.development
+    environment:
+      POSTGRESQL_USERNAME: docker
+      POSTGRESQL_PASSWORD: docker
+      POSTGRESQL_DATABASE: ignite-find-a-friend
     ports:
       - 5432:5432
   api:
