@@ -10,6 +10,7 @@ import { AppError } from './errors/AppError'
 import { InternalServerError } from './errors/InternalServerError'
 import { ValidationError } from './errors/ValidationError'
 import { identitiesRoutes } from './http/controllers/identities/routes'
+import { locationsRoutes } from './http/controllers/locations/routes'
 import { sessionsRoutes } from './http/controllers/sessions/routes'
 import { logger } from './logger'
 
@@ -45,6 +46,7 @@ app.register(jwt, {
 
 app.register(identitiesRoutes)
 app.register(sessionsRoutes)
+app.register(locationsRoutes)
 
 app.setErrorHandler((fastifyError, request, replay) => {
   if (fastifyError instanceof ZodError) {
