@@ -1,6 +1,4 @@
-import argon2 from 'argon2'
-
-import { ENV } from '@/env'
+import { HashProvider } from '@/providers/hash-provider'
 import {
   IdentitiesRepository,
   Identity,
@@ -18,7 +16,10 @@ type AuthenticateUseCaseResponse = {
 }
 
 export class AuthenticateUseCase {
-  constructor(private readonly identitiesRepository: IdentitiesRepository) {}
+  constructor(
+    private readonly identitiesRepository: IdentitiesRepository,
+    private readonly hashProvider: HashProvider,
+  ) {}
 
   async execute({
     email,
@@ -30,10 +31,9 @@ export class AuthenticateUseCase {
       throw new InvalidCredentialsError()
     }
 
-    const doesPasswordMatches = await argon2.verify(
+    const doesPasswordMatches = await this.hashProvider.verify(
       identity.password_hash,
       password,
-      { secret: Buffer.from(ENV.PASS_SECRET) },
     )
 
     if (!doesPasswordMatches) {

@@ -1,6 +1,4 @@
-import argon2 from 'argon2'
-
-import { ENV } from '@/env'
+import { HashProvider } from '@/providers/hash-provider'
 import {
   IdentitiesRepository,
   Identity,
@@ -17,7 +15,10 @@ type CreateIdentityUseCaseResponse = {
 }
 
 export class CreateIdentityUseCase {
-  constructor(private readonly identitiesRepository: IdentitiesRepository) {}
+  constructor(
+    private readonly identitiesRepository: IdentitiesRepository,
+    private readonly hashProvider: HashProvider,
+  ) {}
 
   async execute({
     email,
@@ -30,9 +31,7 @@ export class CreateIdentityUseCase {
       throw new IdentityAlreadyExistsError()
     }
 
-    const password_hash = await argon2.hash(password, {
-      secret: Buffer.from(ENV.PASS_SECRET),
-    })
+    const password_hash = await this.hashProvider.hash(password)
 
     const identity = await this.identitiesRepository.create({
       email,
