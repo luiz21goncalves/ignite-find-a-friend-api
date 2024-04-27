@@ -5,18 +5,25 @@ import { AuthenticateUseCase } from '@/use-cases/authenticate'
 import { CreateIdentityUseCase } from '@/use-cases/create-identity'
 import { InvalidCredentialsError } from '@/use-cases/errors/InvalidCredentialsError'
 
+import { FakeHashProvider } from '../providers/hash-provider/fake-hash-provider'
 import { InMemoryIdentitiesRepository } from '../repositories/InMemoryIdentitiesRepository'
 
 let sut: AuthenticateUseCase
 let inMemoryIdentitiesRepository: InMemoryIdentitiesRepository
 let createIdentityUseCase: CreateIdentityUseCase
+let fakeHashProvider: FakeHashProvider
 
 describe('AuthenticateUseCase', () => {
   beforeEach(() => {
+    fakeHashProvider = new FakeHashProvider()
     inMemoryIdentitiesRepository = new InMemoryIdentitiesRepository()
-    sut = new AuthenticateUseCase(inMemoryIdentitiesRepository)
+    sut = new AuthenticateUseCase(
+      inMemoryIdentitiesRepository,
+      fakeHashProvider,
+    )
     createIdentityUseCase = new CreateIdentityUseCase(
       inMemoryIdentitiesRepository,
+      fakeHashProvider,
     )
   })
 
