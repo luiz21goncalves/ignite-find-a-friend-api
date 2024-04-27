@@ -6,6 +6,7 @@ dotenv.config({
 })
 
 const envSchema = z.object({
+  BRASIL_API_BASE_URL: z.string().url(),
   DATABASE_URL: z.string().url(),
   JWT_EXPIRES_IN: z.string(),
   JWT_SECRET: z.string(),
