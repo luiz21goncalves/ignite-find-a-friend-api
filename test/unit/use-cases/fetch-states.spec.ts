@@ -17,7 +17,7 @@ describe('FetchStatesUseCase', () => {
     vi.clearAllMocks()
   })
 
-  it('should be able to list all states with file', async () => {
+  it('should be able to list all states with json file', async () => {
     vi.spyOn(LocalStorageProvider.prototype, 'read').mockResolvedValueOnce(
       JSON.stringify([{ acronym: 'MG', id: 31, name: 'Minas Gerais' }]),
     )
@@ -29,7 +29,7 @@ describe('FetchStatesUseCase', () => {
     ])
   })
 
-  it('should be able to list all states without file', async () => {
+  it('should be able to list all states without json file', async () => {
     vi.spyOn(LocalStorageProvider.prototype, 'read').mockResolvedValueOnce(null)
     vi.spyOn(FakeHttpProvider.prototype, 'get').mockResolvedValueOnce([
       {
