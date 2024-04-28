@@ -4,15 +4,21 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { CreateIdentityUseCase } from '@/use-cases/create-identity'
 import { IdentityAlreadyExistsError } from '@/use-cases/errors/IdentityAlreadyExistsError'
 
+import { FakeHashProvider } from '../providers/hash-provider/fake-hash-provider'
 import { InMemoryIdentitiesRepository } from '../repositories/InMemoryIdentitiesRepository'
 
 let sut: CreateIdentityUseCase
 let inMemoryIdentitiesRepository: InMemoryIdentitiesRepository
+let fakeHashProvider: FakeHashProvider
 
 describe('CreateIdentityUseCase', () => {
   beforeEach(() => {
     inMemoryIdentitiesRepository = new InMemoryIdentitiesRepository()
-    sut = new CreateIdentityUseCase(inMemoryIdentitiesRepository)
+    fakeHashProvider = new FakeHashProvider()
+    sut = new CreateIdentityUseCase(
+      inMemoryIdentitiesRepository,
+      fakeHashProvider,
+    )
   })
 
   it('should be able to create an identity', async () => {
