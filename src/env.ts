@@ -19,6 +19,7 @@ const envSchema = z.object({
     'trace',
     'silent',
   ]),
+  NODE_ENV: z.enum(['production', 'development', 'test']),
   PASS_SECRET: z.string(),
   PORT: z.coerce.number(),
 })
