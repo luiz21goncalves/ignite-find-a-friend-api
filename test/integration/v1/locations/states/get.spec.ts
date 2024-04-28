@@ -27,7 +27,7 @@ describe(`GET ${ROUTE}`, () => {
     await app.close()
   })
 
-  it('should abe able to list all states withtout json file', async () => {
+  it('should be able to list all states withtout json file', async () => {
     const response = await supertest(app.server).get(ROUTE)
 
     expect(response.status).toEqual(200)
@@ -64,7 +64,7 @@ describe(`GET ${ROUTE}`, () => {
     })
   })
 
-  it('should abe able to list all states with json file', async () => {
+  it('should be able to list all states with json file', async () => {
     const fetchStatusUseCase = makeFetchStatesUseCase()
     await fetchStatusUseCase.execute()
 
