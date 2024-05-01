@@ -14,11 +14,26 @@ datasource db {
 }
 
 model Identity {
-  id            String   @id @default(uuid())
-  email         String   @unique
+  id            String         @id @default(uuid())
+  email         String         @unique
   password_hash String
-  created_at    DateTime @default(now())
-  updated_at    DateTime @default(now()) @updatedAt
+  created_at    DateTime       @default(now())
+  updated_at    DateTime       @default(now()) @updatedAt
+  Organization  Organization[]
 
   @@map("identities")
+}
+
+model Organization {
+  id          String   @id @default(uuid())
+  name        String
+  zip_code    String
+  address     String
+  whatsapp    String
+  identity_id String
+  identity    Identity @relation(fields: [identity_id], references: [id])
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now()) @updatedAt
+
+  @@map("organizations")
 }
