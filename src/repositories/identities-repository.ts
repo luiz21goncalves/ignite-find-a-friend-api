@@ -14,4 +14,5 @@ export type Identity = {
 export type IdentitiesRepository = {
   create(data: CreateIdentityData): Promise<Identity>
   findByEmail(email: string): Promise<Identity | null>
+  findById(id: string): Promise<Identity | null>
 }

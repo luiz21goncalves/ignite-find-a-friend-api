@@ -23,4 +23,10 @@ export class PrismaIdentitiesRepository implements IdentitiesRepository {
 
     return identity
   }
+
+  async findById(id: string): Promise<Identity | null> {
+    const identity = await prisma.identity.findUnique({ where: { id } })
+
+    return identity
+  }
 }
