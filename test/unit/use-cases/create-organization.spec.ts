@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CreateOrganizationUseCase } from '@/use-cases/create-organization'
+import { IdentityNotFoundError } from '@/use-cases/errors/identity-not-found-error'
 
 import { InMemoryIdentitiesRepository } from '../repositories/in-memory-identities-repository'
 import { InMemoryOrganizationsRepositories } from '../repositories/in-memory-organizations-repository'
@@ -49,5 +50,17 @@ describe('CreateOrganizationUseCase', () => {
       whatsapp,
       zip_code,
     })
+  })
+
+  it('should not be able to create a new organization without identity', async () => {
+    await expect(
+      sut.execute({
+        address: faker.location.streetAddress({ useFullAddress: true }),
+        identity_id: faker.string.uuid(),
+        name: faker.company.name(),
+        whatsapp: faker.phone.number(),
+        zip_code: faker.location.zipCode(),
+      }),
+    ).rejects.toBeInstanceOf(IdentityNotFoundError)
   })
 })
