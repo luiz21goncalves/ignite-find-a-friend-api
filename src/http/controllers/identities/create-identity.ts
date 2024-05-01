@@ -18,5 +18,7 @@ export async function createIdentity(
 
   const { identity } = await createIdentityUseCase.execute({ email, password })
 
-  return replay.status(201).send({ identity })
+  const token = await replay.jwtSign({}, { sign: { sub: identity.id } })
+
+  return replay.status(201).send({ identity, token })
 }

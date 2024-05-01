@@ -33,6 +33,7 @@ describe(`POST ${ROUTE}`, () => {
         id: expect.any(String),
         updated_at: expect.any(String),
       },
+      token: expect.any(String),
     })
   })
 
