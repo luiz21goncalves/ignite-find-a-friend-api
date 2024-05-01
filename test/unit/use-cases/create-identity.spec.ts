@@ -5,7 +5,7 @@ import { CreateIdentityUseCase } from '@/use-cases/create-identity'
 import { IdentityAlreadyExistsError } from '@/use-cases/errors/identity-already-exists-error'
 
 import { FakeHashProvider } from '../providers/hash-provider/fake-hash-provider'
-import { InMemoryIdentitiesRepository } from '../repositories/InMemoryIdentitiesRepository'
+import { InMemoryIdentitiesRepository } from '../repositories/in-memory-identities-repository'
 
 let sut: CreateIdentityUseCase
 let inMemoryIdentitiesRepository: InMemoryIdentitiesRepository
