@@ -3,10 +3,10 @@ import { beforeEach, describe, expect, it } from 'vitest'
 
 import { AuthenticateUseCase } from '@/use-cases/authenticate'
 import { CreateIdentityUseCase } from '@/use-cases/create-identity'
-import { InvalidCredentialsError } from '@/use-cases/errors/InvalidCredentialsError'
+import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials-error'
 
 import { FakeHashProvider } from '../providers/hash-provider/fake-hash-provider'
-import { InMemoryIdentitiesRepository } from '../repositories/InMemoryIdentitiesRepository'
+import { InMemoryIdentitiesRepository } from '../repositories/in-memory-identities-repository'
 
 let sut: AuthenticateUseCase
 let inMemoryIdentitiesRepository: InMemoryIdentitiesRepository

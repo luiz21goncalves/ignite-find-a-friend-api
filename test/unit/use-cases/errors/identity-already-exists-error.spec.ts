@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { IdentityAlreadyExistsError } from '@/use-cases/errors/IdentityAlreadyExistsError'
+import { IdentityAlreadyExistsError } from '@/use-cases/errors/identity-already-exists-error'
 
 describe('IdentityAlreadyExistsError', () => {
   it('should be able to create an identity already exists error', () => {

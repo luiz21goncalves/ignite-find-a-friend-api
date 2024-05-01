@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { InternalServerError } from '@/errors/InternalServerError'
+import { InternalServerError } from '@/errors/internal-server-error'
 
 describe('InternalServerError', () => {
   it('should be able to create an InternalServerError', () => {

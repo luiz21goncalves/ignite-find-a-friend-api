@@ -35,4 +35,10 @@ export class InMemoryIdentitiesRepository implements IdentitiesRepository {
 
     return identity
   }
+
+  async findById(id: string): Promise<Identity | null> {
+    const identity = this.data.find((item) => item.id === id) ?? null
+
+    return identity
+  }
 }
