@@ -4,7 +4,7 @@ import {
   Identity,
 } from '@/repositories/identities-repository'
 
-import { InvalidCredentialsError } from './errors/InvalidCredentialsError'
+import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
 type AuthenticateUseCaseRequest = {
   email: string

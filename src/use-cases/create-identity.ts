@@ -4,7 +4,7 @@ import {
   Identity,
 } from '@/repositories/identities-repository'
 
-import { IdentityAlreadyExistsError } from './errors/IdentityAlreadyExistsError'
+import { IdentityAlreadyExistsError } from './errors/identity-already-exists-error'
 
 type CreateIdentityUseCaseRequest = {
   email: string

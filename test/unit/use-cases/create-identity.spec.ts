@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CreateIdentityUseCase } from '@/use-cases/create-identity'
-import { IdentityAlreadyExistsError } from '@/use-cases/errors/IdentityAlreadyExistsError'
+import { IdentityAlreadyExistsError } from '@/use-cases/errors/identity-already-exists-error'
 
 import { FakeHashProvider } from '../providers/hash-provider/fake-hash-provider'
 import { InMemoryIdentitiesRepository } from '../repositories/InMemoryIdentitiesRepository'

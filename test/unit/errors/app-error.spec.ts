@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { AppError } from '@/errors/AppError'
+import { AppError } from '@/errors/app-error'
 
 describe('AppError', () => {
   it('should be able to create an application error', () => {
