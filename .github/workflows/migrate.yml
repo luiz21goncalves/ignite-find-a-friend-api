@@ -39,6 +39,9 @@ jobs:
         if: steps.pnpm-cache.outputs.cache-hit != 'true'
       - run: pnpm install --prefer-offline --frozen-lockfile
 
+      - name: generate prisma client
+        run: pnpm prisma genereate
+
       - name: run migrations
         run: pnpm run migrate:deploy
 
