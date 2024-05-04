@@ -12,6 +12,7 @@ import { ValidationError } from './errors/validation-error'
 import { identitiesRoutes } from './http/controllers/identities/routes'
 import { locationsRoutes } from './http/controllers/locations/routes'
 import { organizationsRoutes } from './http/controllers/organizations/routes'
+import { petsRoutes } from './http/controllers/pets/routes'
 import { sessionsRoutes } from './http/controllers/sessions/routes'
 import { logger } from './logger'
 
@@ -49,6 +50,7 @@ app.register(identitiesRoutes)
 app.register(sessionsRoutes)
 app.register(locationsRoutes)
 app.register(organizationsRoutes)
+app.register(petsRoutes)
 
 app.setErrorHandler((fastifyError, request, replay) => {
   if (fastifyError instanceof ZodError) {
