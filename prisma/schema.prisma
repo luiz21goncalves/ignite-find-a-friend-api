@@ -34,6 +34,25 @@ model Organization {
   identity    Identity @relation(fields: [identity_id], references: [id])
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now()) @updatedAt
+  pets        Pet[]
 
+  @@index([zip_code])
   @@map("organizations")
+}
+
+model Pet {
+  id              String       @id @default(uuid())
+  name            String
+  about           String
+  age             String
+  dependency      String
+  kind            String
+  size            String
+  space           String
+  organization_id String
+  organization    Organization @relation(fields: [organization_id], references: [id])
+  created_at      DateTime     @default(now())
+  updated_at      DateTime     @default(now()) @updatedAt
+
+  @@map("pets")
 }

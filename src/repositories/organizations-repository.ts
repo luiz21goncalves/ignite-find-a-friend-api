@@ -19,4 +19,5 @@ export type Organization = {
 
 export type OrganizationsRepository = {
   create(data: CreateOrganizationData): Promise<Organization>
+  findByIdentityId(identity_id: string): Promise<Organization | null>
 }
