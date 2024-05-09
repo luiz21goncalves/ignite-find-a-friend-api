@@ -35,5 +35,6 @@ model Organization {
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now()) @updatedAt
 
+  @@index([zip_code])
   @@map("organizations")
 }
