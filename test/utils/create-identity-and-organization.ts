@@ -7,7 +7,7 @@ import { Organization } from '@/repositories/organizations-repository'
 
 import { createIdentity } from './create-identity'
 
-export async function CreateIdentityAndOrganization(
+export async function createIdentityAndOrganization(
   override?: Partial<{
     email: string
     password: string

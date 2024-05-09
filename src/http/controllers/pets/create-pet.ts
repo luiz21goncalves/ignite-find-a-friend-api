@@ -1,6 +1,8 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
 
+import { makeCreatePetUseCase } from '@/use-cases/factories/make-create-pet-use-case'
+
 export async function createPet(request: FastifyRequest, replay: FastifyReply) {
   const createPetBodySchema = z.object({
     about: z.string(),
@@ -15,5 +17,18 @@ export async function createPet(request: FastifyRequest, replay: FastifyReply) {
   const { about, age, dependency, kind, name, size, space } =
     createPetBodySchema.parse(request.body)
 
-  return replay.status(201).send({})
+  const createPetUseCase = makeCreatePetUseCase()
+
+  const { pet } = await createPetUseCase.execute({
+    about,
+    age,
+    dependency,
+    identity_id: request.user.sub,
+    kind,
+    name,
+    size,
+    space,
+  })
+
+  return replay.status(201).send({ pet })
 }
