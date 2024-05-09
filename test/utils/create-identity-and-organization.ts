@@ -25,7 +25,7 @@ export async function CreateIdentityAndOrganization(
   const zip_code = faker.location.zipCode()
 
   const response = await supertest(app.server)
-    .post('/v1/organization')
+    .post('/v1/organizations')
     .auth(token, { type: 'bearer' })
     .send({
       address,
