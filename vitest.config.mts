@@ -6,7 +6,7 @@ export default defineConfig({
   test: {
     coverage: {
       provider: 'v8',
-      reporter: ['lcov', 'text'],
+      reporter: ['lcov', 'text', 'text-summary'],
     },
     environmentMatchGlobs: [['test/integration/**', 'prisma']],
   },
