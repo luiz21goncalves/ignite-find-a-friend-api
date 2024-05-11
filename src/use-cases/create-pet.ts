@@ -11,6 +11,7 @@ type CreatePetUseCaseRequest = {
   name: string
   size: string
   space: string
+  energy: string
   identity_id: string
 }
 
@@ -33,6 +34,7 @@ export class CreatePetUseCase {
     name,
     size,
     space,
+    energy,
   }: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
     const organization =
       await this.organizationRepository.findByIdentityId(identity_id)
@@ -45,6 +47,7 @@ export class CreatePetUseCase {
       about,
       age,
       dependency,
+      energy,
       kind,
       name,
       organization_id: organization.id,

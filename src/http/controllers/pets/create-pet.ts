@@ -9,13 +9,14 @@ export async function createPet(request: FastifyRequest, replay: FastifyReply) {
     about: z.string(),
     age: z.string(),
     dependency: z.string(),
+    energy: z.string(),
     kind: z.string(),
     name: z.string(),
     size: z.string(),
     space: z.string(),
   })
 
-  const { about, age, dependency, kind, name, size, space } =
+  const { about, age, dependency, kind, name, size, space, energy } =
     createPetBodySchema.parse(request.body)
 
   const createPetUseCase = makeCreatePetUseCase()
@@ -24,6 +25,7 @@ export async function createPet(request: FastifyRequest, replay: FastifyReply) {
     about,
     age,
     dependency,
+    energy,
     identity_id: request.user.sub,
     kind,
     name,
