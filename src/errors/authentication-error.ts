@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes'
+
 import { AppError } from './app-error'
 
 export class AuthenticationError extends AppError {
@@ -5,7 +7,7 @@ export class AuthenticationError extends AppError {
     super({
       error: 'Authentication Required',
       message: 'Send a jwt token or re-authenticate',
-      statusCode: 401,
+      statusCode: StatusCodes.UNAUTHORIZED,
       type: 'validation_error',
     })
   }

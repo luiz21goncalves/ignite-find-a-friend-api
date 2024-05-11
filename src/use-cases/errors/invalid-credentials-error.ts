@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes'
+
 import { AppError } from '@/errors/app-error'
 
 export class InvalidCredentialsError extends AppError {
@@ -5,7 +7,7 @@ export class InvalidCredentialsError extends AppError {
     super({
       error: 'Invalid credentials',
       message: 'Invalid email or password',
-      statusCode: 400,
+      statusCode: StatusCodes.BAD_REQUEST,
       type: 'validation_error',
     })
   }

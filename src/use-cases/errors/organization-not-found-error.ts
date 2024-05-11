@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes'
+
 import { AppError } from '@/errors/app-error'
 
 export class OrganizationNotFoundError extends AppError {
@@ -5,7 +7,7 @@ export class OrganizationNotFoundError extends AppError {
     super({
       error: 'Organization not found',
       message: 'Could not be found the organization',
-      statusCode: 404,
+      statusCode: StatusCodes.NOT_FOUND,
       type: 'constraint_error',
     })
   }

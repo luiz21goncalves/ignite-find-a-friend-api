@@ -1,4 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
+import { StatusCodes } from 'http-status-codes'
 import z from 'zod'
 
 import { makeCreatePetUseCase } from '@/use-cases/factories/make-create-pet-use-case'
@@ -30,5 +31,5 @@ export async function createPet(request: FastifyRequest, replay: FastifyReply) {
     space,
   })
 
-  return replay.status(201).send({ pet })
+  return replay.status(StatusCodes.CREATED).send({ pet })
 }

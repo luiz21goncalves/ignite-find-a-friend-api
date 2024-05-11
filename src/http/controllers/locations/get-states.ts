@@ -1,4 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
+import { StatusCodes } from 'http-status-codes'
 
 import { makeFetchStatesUseCase } from '@/use-cases/factories/make-fetch-states-use-case'
 
@@ -10,5 +11,5 @@ export async function getStates(
 
   const { states } = await fetchStatesUseCase.execute()
 
-  return replay.status(200).send({ states })
+  return replay.status(StatusCodes.OK).send({ states })
 }

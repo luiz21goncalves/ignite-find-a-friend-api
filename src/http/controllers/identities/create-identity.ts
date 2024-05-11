@@ -1,4 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
+import { StatusCodes } from 'http-status-codes'
 import z from 'zod'
 
 import { makeCreateIdentityUseCase } from '@/use-cases/factories/make-create-identity-use-case'
@@ -20,5 +21,5 @@ export async function createIdentity(
 
   const token = await replay.jwtSign({}, { sign: { sub: identity.id } })
 
-  return replay.status(201).send({ identity, token })
+  return replay.status(StatusCodes.CREATED).send({ identity, token })
 }
