@@ -25,6 +25,7 @@ describe(`POST ${ROUTE}`, () => {
     const dependency = faker.lorem.word()
     const name = faker.lorem.word()
     const size = faker.lorem.word()
+    const energy = faker.lorem.word()
     const kind = faker.lorem.word()
     const space = faker.lorem.word()
 
@@ -35,6 +36,7 @@ describe(`POST ${ROUTE}`, () => {
         about,
         age,
         dependency,
+        energy,
         kind,
         name,
         size,
@@ -48,6 +50,7 @@ describe(`POST ${ROUTE}`, () => {
         age,
         created_at: expect.any(String),
         dependency,
+        energy,
         id: expect.any(String),
         kind,
         name,
@@ -87,6 +90,7 @@ describe(`POST ${ROUTE}`, () => {
         about: { _errors: ['Required'] },
         age: { _errors: ['Required'] },
         dependency: { _errors: ['Required'] },
+        energy: { _errors: ['Required'] },
         kind: { _errors: ['Required'] },
         name: { _errors: ['Required'] },
         size: { _errors: ['Required'] },
@@ -105,6 +109,7 @@ describe(`POST ${ROUTE}`, () => {
     const dependency = faker.lorem.word()
     const name = faker.lorem.word()
     const size = faker.lorem.word()
+    const energy = faker.lorem.word()
     const kind = faker.lorem.word()
     const space = faker.lorem.word()
 
@@ -115,6 +120,7 @@ describe(`POST ${ROUTE}`, () => {
         about,
         age,
         dependency,
+        energy,
         kind,
         name,
         size,

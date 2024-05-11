@@ -6,6 +6,7 @@ export type CreatePetData = {
   name: string
   size: string
   space: string
+  energy: string
   organization_id: string
 }
 
@@ -16,6 +17,7 @@ export type Pet = {
   kind: string
   name: string
   size: string
+  energy: string
   space: string
   organization_id: string
   created_at: Date

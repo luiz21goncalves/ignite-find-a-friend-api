@@ -12,12 +12,14 @@ export class PrismaPetsRepository implements PetsRepository {
     name,
     size,
     space,
+    energy,
   }: CreatePetData): Promise<Pet> {
     const pet = await prisma.pet.create({
       data: {
         about,
         age,
         dependency,
+        energy,
         kind,
         name,
         organization_id,
@@ -26,6 +28,6 @@ export class PrismaPetsRepository implements PetsRepository {
       },
     })
 
-    return pet
+    return { ...pet, energy: pet.energy ?? '' }
   }
 }
