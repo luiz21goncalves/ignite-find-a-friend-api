@@ -47,13 +47,15 @@ export class PrismaPetsRepository implements PetsRepository {
   }: FetchPetsFilters): Promise<Pet[]> {
     const pets = await prisma.pet.findMany({
       where: {
-        age,
-        dependency,
-        energy,
-        kind,
+        AND: {
+          age,
+          dependency,
+          energy,
+          kind,
+          size,
+          space,
+        },
         organization: { zip_code },
-        size,
-        space,
       },
     })
 
