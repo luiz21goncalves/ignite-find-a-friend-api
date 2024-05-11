@@ -10,6 +10,16 @@ export type CreatePetData = {
   organization_id: string
 }
 
+export type FetchPetsFilters = {
+  age?: string
+  dependency?: string
+  energy?: string
+  kind?: string
+  size?: string
+  space?: string
+  zip_code: string
+}
+
 export type Pet = {
   about: string
   age: string
@@ -26,4 +36,5 @@ export type Pet = {
 
 export type PetsRepository = {
   create(data: CreatePetData): Promise<Pet>
+  fetchPets(data: FetchPetsFilters): Promise<Pet[]>
 }

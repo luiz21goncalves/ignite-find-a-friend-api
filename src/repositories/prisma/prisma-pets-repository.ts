@@ -1,6 +1,11 @@
 import { prisma } from '@/lib/prisma'
 
-import { CreatePetData, Pet, PetsRepository } from '../pets-repository'
+import {
+  CreatePetData,
+  FetchPetsFilters,
+  Pet,
+  PetsRepository,
+} from '../pets-repository'
 
 export class PrismaPetsRepository implements PetsRepository {
   async create({
@@ -29,5 +34,31 @@ export class PrismaPetsRepository implements PetsRepository {
     })
 
     return { ...pet, energy: pet.energy ?? '' }
+  }
+
+  async fetchPets({
+    zip_code,
+    age,
+    dependency,
+    energy,
+    kind,
+    size,
+    space,
+  }: FetchPetsFilters): Promise<Pet[]> {
+    const pets = await prisma.pet.findMany({
+      where: {
+        age,
+        dependency,
+        energy,
+        kind,
+        organization: { zip_code },
+        size,
+        space,
+      },
+    })
+
+    return pets.map((pet) => {
+      return { ...pet, energy: pet.energy ?? '' }
+    })
   }
 }
