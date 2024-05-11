@@ -1,4 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
+import { StatusCodes } from 'http-status-codes'
 import z from 'zod'
 
 import { makeCreateOrganizationUseCase } from '@/use-cases/factories/make-create-organization-use-case'
@@ -29,5 +30,5 @@ export async function createOrganization(
     zip_code,
   })
 
-  return replay.status(201).send({ organization })
+  return replay.status(StatusCodes.CREATED).send({ organization })
 }

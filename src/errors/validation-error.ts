@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes'
+
 import { AppError } from './app-error'
 
 export class ValidationError extends AppError {
@@ -5,7 +7,7 @@ export class ValidationError extends AppError {
     super({
       error: 'Validation failed',
       message,
-      statusCode: 400,
+      statusCode: StatusCodes.BAD_REQUEST,
       type: 'validation_error',
     })
   }

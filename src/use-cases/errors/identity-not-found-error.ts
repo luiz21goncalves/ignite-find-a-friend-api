@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes'
+
 import { AppError } from '@/errors/app-error'
 
 export class IdentityNotFoundError extends AppError {
@@ -5,7 +7,7 @@ export class IdentityNotFoundError extends AppError {
     super({
       error: 'Identity not found',
       message: 'Could not be found the identity',
-      statusCode: 404,
+      statusCode: StatusCodes.NOT_FOUND,
       type: 'constraint_error',
     })
   }

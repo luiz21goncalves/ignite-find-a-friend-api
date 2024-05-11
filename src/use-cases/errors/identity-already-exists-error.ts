@@ -1,3 +1,5 @@
+import { StatusCodes } from 'http-status-codes'
+
 import { AppError } from '@/errors/app-error'
 
 export class IdentityAlreadyExistsError extends AppError {
@@ -5,7 +7,7 @@ export class IdentityAlreadyExistsError extends AppError {
     super({
       error: 'Identity already exists',
       message: 'Email already in use',
-      statusCode: 422,
+      statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
       type: 'constraint_error',
     })
   }
