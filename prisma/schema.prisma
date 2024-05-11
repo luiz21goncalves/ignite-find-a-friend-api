@@ -47,6 +47,7 @@ model Pet {
   age             String
   dependency      String
   kind            String
+  energy          String?
   size            String
   space           String
   organization_id String
